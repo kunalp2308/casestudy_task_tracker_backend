@@ -20,7 +20,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 def _frontend_callback_url(error: str | None = None, access_token: str | None = None) -> str:
     base_url = settings.frontend_origin.rstrip('/')
     if access_token:
-        return f"{base_url}#access_token={quote(access_token)}"
+        return f"{base_url}/#access_token={quote(access_token)}"
     if error:
         return f"{base_url}?auth_error={quote(error)}"
     return base_url
